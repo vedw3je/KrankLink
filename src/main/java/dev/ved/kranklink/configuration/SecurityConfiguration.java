@@ -1,4 +1,4 @@
-package dev.ved.kranklink.user_service.configuration;
+package dev.ved.kranklink.configuration;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;

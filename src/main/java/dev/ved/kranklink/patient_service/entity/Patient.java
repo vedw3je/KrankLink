@@ -24,7 +24,7 @@ public class Patient {
     private String contactInfo;
 
     private String userId;
-    private String role = "PATIENT";
+
 
     // Embedded medical records
    private List<MedicalRecords> medicalRecords;

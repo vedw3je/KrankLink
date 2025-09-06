@@ -57,23 +57,20 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<?> registerUser(@RequestBody RegisterRequest request) {
-        try {
-            User savedUser = userService.registerUser(request);
+    public ResponseEntity<UserResponse> registerUser(@RequestBody RegisterRequest request) {
+        User savedUser = userService.registerUser(request);
 
-            UserResponse response = new UserResponse(
-                    savedUser.getId(),
-                    savedUser.getUsername(),
-                    savedUser.getEmail(),
-                    savedUser.getPhoneNumber(),
-                    savedUser.getRole()
-            );
+        UserResponse response = new UserResponse(
+                savedUser.getId(),
+                savedUser.getUsername(),
+                savedUser.getEmail(),
+                savedUser.getPhoneNumber(),
+                savedUser.getRole()
+        );
 
-            return ResponseEntity.status(HttpStatus.CREATED).body(response);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error: " + e.getMessage());
-        }
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
+
 
 
 
