@@ -1,5 +1,6 @@
 package dev.ved.kranklink.user_service.entity;
 
+import dev.ved.kranklink.user_service.enums.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,5 +26,5 @@ public class User {
     @Indexed(unique = true)
     private String email;
 
-    private String role;
+    private Role role;
 }

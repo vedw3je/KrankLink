@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/doctor")
@@ -40,5 +41,32 @@ public class DoctorController {
         }
         return ResponseEntity.ok(doctors);
     }
+
+    @GetMapping("/searchByCity")
+    public ResponseEntity<?> findDoctorsByCity(@RequestParam String city) {
+        List<Doctor> doctors = doctorService.getDoctorsByCity(city);
+        if (doctors.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body("No doctors found in city: " + city);
+        }
+        return ResponseEntity.ok(doctors);
+    }
+
+
+    @GetMapping("/searchByPhoneNumber")
+    public ResponseEntity<?> findDoctorByPhoneNumber(@RequestParam String phoneNumber) {
+        Optional<Doctor> doctor = doctorService.getDoctorByPhoneNumber(phoneNumber);
+
+        if (doctor.isPresent()) {
+            return ResponseEntity.ok(doctor.get());
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body("No doctor found with phone number: " + phoneNumber);
+        }
+    }
+
+
+
+
 
 }

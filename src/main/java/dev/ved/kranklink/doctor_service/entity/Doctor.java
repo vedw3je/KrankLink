@@ -19,7 +19,7 @@ public class Doctor {
     private String id;
 
     @Indexed(unique = true)
-    private String doctorId; // Unique identifier for the doctor (like emp code / hospital code)
+    private String doctorId;
 
     @Indexed(unique = true)
     private String email;
@@ -28,15 +28,17 @@ public class Doctor {
     private String phoneNumber;
 
     private String name;
-    private String specialization; // e.g., Cardiologist, Neurologist
-    private String qualification;  // e.g., MBBS, MD, MS
-    private int experienceYears;   // Years of practice
+    private String specialization;
+    private String qualification;
+    private int experienceYears;
 
     private String hospitalName;
     private String hospitalAddress;
 
     private consultationType consultationType; // ONLINE / OFFLINE / BOTH
     private Double consultationFee;
+
+    private String city;
 
     private boolean available; // Is doctor currently available for appointments?
 }

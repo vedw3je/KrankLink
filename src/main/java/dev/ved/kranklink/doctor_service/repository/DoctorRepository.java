@@ -17,8 +17,8 @@ public interface DoctorRepository extends MongoRepository<Doctor,String> {
     public Optional<Doctor> findByEmail(String email);
 
     public List<Doctor> findByName(String name);
-    List<Doctor> findByNameRegexIgnoreCase(String regex);
-
+    public List<Doctor> findByNameRegexIgnoreCase(String regex);
+    public List<Doctor> findByCity(String city);
     public List<Doctor> findByConsultationType(consultationType consultationType );
 
 }

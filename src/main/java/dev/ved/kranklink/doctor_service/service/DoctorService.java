@@ -79,6 +79,10 @@ public class DoctorService {
         return doctorRepository.findByNameRegexIgnoreCase(regex);
     }
 
+    public List<Doctor> getDoctorsByCity(String city){
+        return doctorRepository.findByCity(city);
+    }
+
     // Find by consultation type
     public List<Doctor> getDoctorsByConsultationType(consultationType type) {
         return doctorRepository.findByConsultationType(type);
